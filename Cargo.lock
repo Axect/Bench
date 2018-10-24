@@ -1,0 +1,14 @@
+[[package]]
+name = "bench"
+version = "0.1.0"
+dependencies = [
+ "peroxide 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "peroxide"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[metadata]
+"checksum peroxide 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)" = "0e12a557e7fa813c4889c0fc9dfc60a121aef198a6fd5a1737428bdf1c6d9b8a"
