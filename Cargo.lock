@@ -2,13 +2,13 @@
 name = "bench"
 version = "0.1.0"
 dependencies = [
- "peroxide 0.4.7 (registry+https://github.com/rust-lang/crates.io-index)",
+ "peroxide 0.4.9 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "peroxide"
-version = "0.4.7"
+version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [metadata]
-"checksum peroxide 0.4.7 (registry+https://github.com/rust-lang/crates.io-index)" = "17cb431b80a4264bcc86b604bb89377e14a0309ebf2e706c13b59501ac08ec40"
+"checksum peroxide 0.4.9 (registry+https://github.com/rust-lang/crates.io-index)" = "9bf44a4ec10d33d624ea3562e474818402ac0d60edc915595eae47aa5d790a2b"
