@@ -5,11 +5,7 @@ Julia="julia Julia/"
 numpy="python Python/"
 
 bench () {
-  hyperfine -w 3 --export-csv data/${bench_target}.csv --export-markdown data/${bench_target}.md "${peroxide}${bench_target}" "${dnumeric}" "${R}${bench_target}.R" "${numpy}${bench_target}.py" "${Julia}${bench_target}.jl"
+  hyperfine -w 3 --export-csv data/$1.csv --export-markdown data/$1.md "${peroxide}$1" "${dnumeric}" "${R}$1.R" "${numpy}$1.py" "${Julia}$1.jl"
 }
 
-# Det
-
-export bench_target="det"
-
-bench
+bench $1
