@@ -1,17 +1,15 @@
 import std.stdio;
-import dnum.tensor;
-import dnum.linalg;
-import dnum.utils;
+import dnum.matrix;
 
 void main() {
-  // auto a = Tensor([[1, 2, 2], [4, 5, 1], [7, 2, 9]]);
-  // a.det.writeln;
-  // a.inv.writeln;
-  auto a = Tensor(100, 100);
-  foreach (i; 0 .. 100) {
-    foreach (j; 0 .. 100) {
-      a[i, j] = i * 100 + j + 1;
+    // auto a = Tensor([[1, 2, 2], [4, 5, 1], [7, 2, 9]]);
+    // a.det.writeln;
+    // a.inv.writeln;
+    double[] v;
+    v.length = 10_000;
+    foreach (i; 0 .. 10_000) {
+        v[i] = cast(double)(i + 1);
     }
-  }
-  (a % a).writeln;
+    auto a = Matrix(v, 100, 100, true);
+    writeln(a % a);
 }

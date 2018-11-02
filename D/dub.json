@@ -4,7 +4,7 @@
 		"kavis"
 	],
 	"dependencies": {
-		"dnumeric": "~>0.5.2"
+		"dnumeric": "~>0.6.1"
 	},
 	"description": "A minimal D application.",
 	"copyright": "Copyright © 2018, kavis",
