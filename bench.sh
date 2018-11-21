@@ -1,4 +1,4 @@
-peroxide="./target/release/"
+peroxide="./Rust/target/release/"
 dnumeric="./D/d"
 R="Rscript R/"
 Julia="julia Julia/"
