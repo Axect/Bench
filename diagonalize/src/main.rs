@@ -95,7 +95,7 @@ fn matmul(a: &Matrix, b: &Matrix) -> Matrix {
             ];
 
             let m = m_list.into_par_iter().map(
-                |(p, q)| p.0 * p.1 + q.0 * q.1
+                |(p, q)| matmul(&p.0, &p.1) + matmul(&q.0, &q.1)
             ).collect::<Vec<Matrix>>();
 
             // let m1 = matmul(&a1,&b1) + matmul(&a2,&b3);
