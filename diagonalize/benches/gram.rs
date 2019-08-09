@@ -1,7 +1,11 @@
+#[macro_use]
+extern crate criterion;
 extern crate peroxide;
 use peroxide::*;
 
-pub fn main() {
+use criterion::Criterion;
+
+fn gram() {
     // Make random matrix
     let mut s = rand(100, 100);
     for i in 0 .. 100 {
@@ -11,15 +15,17 @@ pub fn main() {
         }
     }
 
-    (&s * &s).print();
+    let mut ds = gram_schmidt(&s);
 
-    // let mut ds = gram_schmidt(&s);
+    for _i in 0 .. 10 {
+        s = ds.t() * s.clone() * ds;
+        ds = gram_schmidt(&s);
+    }
+    s.print();
+}
 
-    // for i in 0 .. 100 {
-    //     s = ds.t() * s.clone() * ds;
-    //     ds = gram_schmidt(&s);
-    // }
-    // s.print();
+fn bench_gram(c: &mut Criterion) {
+    c.bench_function("gram_schmidt", |b| b.iter(|| gram()));
 }
 
 fn proj(u: &Vec<f64>, v: &Vec<f64>) -> Vec<f64> {
@@ -43,3 +49,6 @@ fn gram_schmidt(vs: &Matrix) -> Matrix {
 
     result.col_map(|v| v.normalize())
 }
+
+criterion_group!(benches, bench_gram);
+criterion_main!(benches);
