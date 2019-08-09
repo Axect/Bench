@@ -8,10 +8,11 @@ edition = "2018"
 
 [dependencies]
 peroxide = "0.12"
+rayon = "1"
 
 [dev-dependencies]
 criterion="0.2"
 
-[[bench]]
-name = "gram"
-harness = false
+# [[bench]]
+# name = "gram"
+# harness = false

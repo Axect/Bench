@@ -1,5 +1,7 @@
 extern crate peroxide;
+extern crate rayon;
 use peroxide::*;
+use rayon::prelude::*;
 
 pub fn main() {
     // Make random matrix
@@ -13,8 +15,10 @@ pub fn main() {
 
     let mut ds = gram_schmidt(&s);
 
+    // matmul(&matmul(&ds.t(),&s), &ds).print();
+
     for i in 0 .. 500 {
-        s = ds.t() * s.clone() * ds;
+        s = matmul(&matmul(&ds.t(),&s), &ds);
         ds = gram_schmidt(&s);
     }
     s.print();
@@ -74,4 +78,33 @@ fn gram_schmidt_raw(vs: &Vec<Vec<f64>>) -> Vec<Vec<f64>> {
         let n = v.norm();
         v.fmap(|t| t / n)
     }).collect()
+}
+
+fn matmul(a: &Matrix, b: &Matrix) -> Matrix {
+    match (a.row, a.col) {
+        (p, q) if p <= 10 && q <= 10 => a * b,
+        _ => {
+            let (a1, a2, a3, a4) = a.block();
+            let (b1, b2, b3, b4) = b.block();
+
+            let m_list = vec![
+                ((&a1, &b1), (&a2, &b3)),
+                ((&a1, &b2), (&a2, &b4)),
+                ((&a3, &b1), (&a4, &b3)),
+                ((&a3, &b2), (&a4, &b4)),
+            ];
+
+            let m = m_list.into_par_iter().map(
+                |(p, q)| p.0 * p.1 + q.0 * q.1
+            ).collect::<Vec<Matrix>>();
+
+            // let m1 = matmul(&a1,&b1) + matmul(&a2,&b3);
+            // let m2 = matmul(&a1,&b2) + matmul(&a2,&b4);
+            // let m3 = matmul(&a3,&b1) + matmul(&a4,&b3);
+            // let m4 = matmul(&a3,&b2) + matmul(&a4,&b4);
+
+            // combine(m1, m2, m3, m4)
+            combine(m[0].clone(), m[1].clone(), m[2].clone(), m[3].clone())
+        }
+    }
 }
