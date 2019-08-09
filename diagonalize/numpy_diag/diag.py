@@ -33,15 +33,11 @@ for i in range(0,100):
     for j in range(0, i):
         m[i,j] = m[j,i]
 
-
-
-# dm = gram_schmidt(m)
-# for i in range(0, 100):
-#     m = dm.T * m * dm
-#     dm = gram_schmidt(m)
+dm = gram_schmidt(m)
+for i in range(0, 500):
+    m = dm.T * m * dm
+    dm = gram_schmidt(m)
 
 np.set_printoptions(precision=3, suppress=True)
 
-print(m*m)
-
-# print(m)
+print(m)
