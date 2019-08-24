@@ -2,6 +2,6 @@ extern crate peroxide;
 use peroxide::*;
 
 fn main() {
-    let a = zeros(1000, 1000);
-    (&a * &a).print();
+    let a = rand(100,100);
+    a.det().print();
 }
