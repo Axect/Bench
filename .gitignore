@@ -1,4 +1,9 @@
 */target
 */**/target
 **/*.rs.bk
-/.idea
+.idea
+.vscode
+*/.idea
+*/.vscode
+*/**/.vscode
+*/**/.idea

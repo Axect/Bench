@@ -18,7 +18,7 @@ pub fn main() {
     // matmul(&matmul(&ds.t(),&s), &ds).print();
 
     for i in 0 .. 500 {
-        s = matmul(&matmul(&ds.t(),&s), &ds);
+        s = (ds.t() * (&s * &ds));
         ds = gram_schmidt(&s);
     }
     s.print();
