@@ -1,2 +1,6 @@
-a = zeros(1000, 1000);
-a * a
+@inline @fastmath function rand_mul()
+    a = rand(1000, 1000);
+    return a * a;
+end
+
+rand_mul()

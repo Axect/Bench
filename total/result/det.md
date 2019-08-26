@@ -1,5 +1,5 @@
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
-| `cargo run --release --bin det` | 48.0 ± 8.6 | 36.2 | 67.9 | 1.0 |
-| `julia julia/det.jl` | 646.9 ± 21.5 | 620.2 | 688.6 | 13.5 |
-| `python python/det.py` | 167.8 ± 5.5 | 161.2 | 183.3 | 3.5 |
+| `cargo run --release --bin det` | 39.3 ± 6.8 | 30.1 | 62.7 | 1.0 |
+| `julia julia/det.jl` | 424.7 ± 5.6 | 416.3 | 433.5 | 10.8 |
+| `python python/det.py` | 122.4 ± 2.0 | 119.3 | 125.4 | 3.1 |

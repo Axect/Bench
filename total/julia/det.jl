@@ -1,3 +1,8 @@
 using LinearAlgebra
-a = rand(100, 100);
-println(det(a))
+
+function rand_det()
+    a = rand(100, 100);
+    return det(a)
+end
+
+rand_det()
