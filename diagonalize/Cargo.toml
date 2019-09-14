@@ -10,6 +10,6 @@ edition = "2018"
 rayon = "1"
 
 [dependencies.peroxide]
-version = "0.14"
+version = "0.16"
 default-features = false
-features = ["native"]
+features = ["oxidize"]
