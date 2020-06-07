@@ -7,9 +7,18 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies.peroxide]
-version = "0.21"
+version = "0.23"
 features = ["O3"]
 
+[dependencies.ndarray]
+version = "0.13"
+
+[dependencies.ndarray-rand]
+version = "0.11"
+
+[dependencies.ndarray-linalg]
+version = "0.12"
+features = ["openblas"]
 
 [profile.release]
 lto = "fat"

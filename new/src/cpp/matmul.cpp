@@ -1,26 +1,22 @@
 #include <iostream>
 #include <sstream>
-#include <armadillo>
+#include <string>
+#include <Eigen/Dense>
 
 using namespace std;
-using namespace arma;
+using namespace Eigen;
 
 int main(int argc, char** argv) {
-    // Parse input
-    unsigned long n;
     string str(argv[1]);
+    unsigned long n;
     stringstream(str) >> n;
 
-    // Seed
-    arma_rng::set_seed_random();
+    srand((unsigned int) time(0));
+    MatrixXd a = MatrixXd::Random(n, n);
+    MatrixXd b = MatrixXd::Random(n, n);
 
-    // Matmul
-    mat a = randu<mat>(n, n);
-    mat b = randu<mat>(n, n);
-
-    mat c = a * b;
-    
-    cout << c(n-1, n-1) << endl;
+    cout << (a * b)(n-1, n-1) << endl;
 
     return 0;
 }
+

@@ -1,5 +1,4 @@
-extern crate peroxide;
-use peroxide::*;
+use peroxide::fuga::*;
 use std::env::args;
 
 fn main() {
